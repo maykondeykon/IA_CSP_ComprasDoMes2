@@ -11,22 +11,22 @@ import java.util.List;
  *
  * @author maykon
  */
-public class PagarComCheque implements Constraint{
+public class PagarComCheque implements Constraint {
+
     private final Variable var1;
     private final List<Variable> escopo;
 
     /**
      * No caixa da quarta posição está a mulher que vai pagar com Cheque.
-     * @param var1 
+     *
+     * @param var1
      */
     public PagarComCheque(Variable var1) {
         this.var1 = var1;
-        
+
         escopo = new ArrayList<>();
         escopo.add(var1);
     }
-    
-    
 
     @Override
     public List<Variable> getScope() {
@@ -40,7 +40,7 @@ public class PagarComCheque implements Constraint{
         if ((v1 == null)) {
             return true;
         }
-        
+
         if ("pagamento".equals(var1Partes[2])) {
             if (v1.compareToIgnoreCase("cheque") == 0) {
                 return (parseInt(var1Partes[1])) == 4;
@@ -48,5 +48,4 @@ public class PagarComCheque implements Constraint{
         }
         return true;
     }
-    
 }

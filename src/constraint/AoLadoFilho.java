@@ -19,8 +19,9 @@ public class AoLadoFilho implements Constraint {
 
     /**
      * Aline está ao lado da mulher que foi ao supermercado com o Filho.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public AoLadoFilho(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -52,11 +53,10 @@ public class AoLadoFilho implements Constraint {
 
         if ("nome".equals(var1Partes[2])) {
             if (v1.compareToIgnoreCase("aline") == 0) {
-                if (((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) ||((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1]))) {
+                if (((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) || ((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1]))) {
                     if ("foi_com".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("filho") == 0;
                     }
-
                 }
 
             }

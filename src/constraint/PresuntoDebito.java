@@ -19,8 +19,9 @@ public class PresuntoDebito implements Constraint {
 
     /**
      * Quem esqueceu o Presunto vai pagar com o cartão de Débito.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public PresuntoDebito(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +57,9 @@ public class PresuntoDebito implements Constraint {
                     if ("pagamento".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("débito") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

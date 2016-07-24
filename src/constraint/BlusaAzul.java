@@ -18,7 +18,8 @@ public class BlusaAzul implements Constraint {
 
     /**
      * A mulher da blusa Azul está no quarto caixa.
-     * @param var1 
+     *
+     * @param var1
      */
     public BlusaAzul(Variable var1) {
         this.var1 = var1;
@@ -48,5 +49,4 @@ public class BlusaAzul implements Constraint {
         }
         return true;
     }
-
 }

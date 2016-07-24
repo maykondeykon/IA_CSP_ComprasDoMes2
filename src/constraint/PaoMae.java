@@ -19,8 +19,9 @@ public class PaoMae implements Constraint {
 
     /**
      * Quem esqueceu o Pão foi com a Mãe.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public PaoMae(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +57,9 @@ public class PaoMae implements Constraint {
                     if ("foi_com".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("mãe") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

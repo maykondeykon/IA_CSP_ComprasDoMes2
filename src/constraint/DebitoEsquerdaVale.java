@@ -18,9 +18,11 @@ public class DebitoEsquerdaVale implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * A mulher que vai pagar com oc cartão de Débito está exatamente à esquerda de quem vai pagar com Vale.
+     * A mulher que vai pagar com oc cartão de Débito está exatamente à esquerda
+     * de quem vai pagar com Vale.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public DebitoEsquerdaVale(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -55,15 +57,10 @@ public class DebitoEsquerdaVale implements Constraint {
                 if ((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) {
                     if ("pagamento".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("vale") == 0;
-
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

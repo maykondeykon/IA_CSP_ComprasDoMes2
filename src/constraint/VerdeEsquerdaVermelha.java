@@ -18,9 +18,11 @@ public class VerdeEsquerdaVermelha implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * A mulher da blusa Verde está em algum lugar à esquerda da de blusa Vermelha.
+     * A mulher da blusa Verde está em algum lugar à esquerda da de blusa
+     * Vermelha.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public VerdeEsquerdaVermelha(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -55,15 +57,10 @@ public class VerdeEsquerdaVermelha implements Constraint {
                 if ((parseInt(var1Partes[1])) > parseInt(var2Partes[1])) {
                     if ("blusa".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("vermelha") == 0;
-
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

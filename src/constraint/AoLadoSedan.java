@@ -18,9 +18,11 @@ public class AoLadoSedan implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * Quem vai pagar com Dinheiro está ao lado de quem foi de Sedan ao supermercado.
+     * Quem vai pagar com Dinheiro está ao lado de quem foi de Sedan ao
+     * supermercado.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public AoLadoSedan(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -52,17 +54,14 @@ public class AoLadoSedan implements Constraint {
 
         if ("pagamento".equals(var1Partes[2])) {
             if (v1.compareToIgnoreCase("dinheiro") == 0) {
-                if (((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) ||((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1]))) {
+                if (((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) || ((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1]))) {
                     if ("carro".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("sedan") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
 
 }

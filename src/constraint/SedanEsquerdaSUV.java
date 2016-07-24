@@ -19,8 +19,9 @@ public class SedanEsquerdaSUV implements Constraint {
 
     /**
      * A dona do Sedan está exatamente à esquerda da dona do SUV.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public SedanEsquerdaSUV(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -55,15 +56,10 @@ public class SedanEsquerdaSUV implements Constraint {
                 if ((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) {
                     if ("carro".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("suv") == 0;
-
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

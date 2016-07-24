@@ -18,9 +18,11 @@ public class CrossoverDireita implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * Quem foi num Crossover está exatamente à direita de quem vai pagar no cartão de Débito.
+     * Quem foi num Crossover está exatamente à direita de quem vai pagar no
+     * cartão de Débito.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public CrossoverDireita(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -55,15 +57,11 @@ public class CrossoverDireita implements Constraint {
                 if ((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1])) {
                     if ("pagamento".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("débito") == 0;
-
                     }
-
                 }
-
             }
         }
         return true;
-
     }
 
 }

@@ -19,8 +19,9 @@ public class ComFilho implements Constraint {
 
     /**
      * Fernanda foi para o supermercado com o Filho.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public ComFilho(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +57,9 @@ public class ComFilho implements Constraint {
                     if ("foi_com".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("filho") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

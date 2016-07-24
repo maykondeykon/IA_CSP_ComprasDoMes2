@@ -19,8 +19,9 @@ public class ComMae implements Constraint {
 
     /**
      * Juliana foi ao supermercado com a Mãe.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public ComMae(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +57,10 @@ public class ComMae implements Constraint {
                     if ("foi_com".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("mãe") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
 
 }

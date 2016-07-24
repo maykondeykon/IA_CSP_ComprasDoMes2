@@ -18,9 +18,11 @@ public class NamoradoPickup implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * A mulher que foi com o Namorado foi fazer as compras dirigindo uma Pickup.
+     * A mulher que foi com o Namorado foi fazer as compras dirigindo uma
+     * Pickup.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public NamoradoPickup(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +58,10 @@ public class NamoradoPickup implements Constraint {
                     if ("carro".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("pickup") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
 
 }

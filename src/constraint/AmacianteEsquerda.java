@@ -16,10 +16,13 @@ public class AmacianteEsquerda implements Constraint {
     private final Variable var1;
     private final Variable var2;
     private final List<Variable> escopo;
+
     /**
-     * A mulher que esqueceu o Amaciante está exatamente à esquerda da que foi dirigindo um Sedan.
+     * A mulher que esqueceu o Amaciante está exatamente à esquerda da que foi
+     * dirigindo um Sedan.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public AmacianteEsquerda(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -50,15 +53,10 @@ public class AmacianteEsquerda implements Constraint {
         }
 
         if ("esqueceu".equals(var1Partes[2])) {
-//            System.out.println("1 = " + var1Partes[2]);
             if (v1.compareToIgnoreCase("amaciante") == 0) {
-//                System.out.println("2 = " + v1);
                 if ((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) {
-//                    System.out.println("3 = " + var1Partes[1] + " < " + var2Partes[1]);
                     if ("carro".equals(var2Partes[2])) {
-//                        System.out.println("4 = " + var2Partes[2]);
                         return v2.compareToIgnoreCase("sedan") == 0;
-
                     }
 
                 }

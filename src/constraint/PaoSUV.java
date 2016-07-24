@@ -19,8 +19,9 @@ public class PaoSUV implements Constraint {
 
     /**
      * Quem esqueceu o Pão foi ao supermercado dirigindo um SUV.
+     *
      * @param var1
-     * @param var2 
+     * @param var2
      */
     public PaoSUV(Variable var1, Variable var2) {
         this.var1 = var1;
@@ -56,13 +57,9 @@ public class PaoSUV implements Constraint {
                     if ("carro".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("suv") == 0;
                     }
-
                 }
-
             }
         }
         return true;
-
     }
-
 }

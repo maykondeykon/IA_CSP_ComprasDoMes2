@@ -19,8 +19,9 @@ public class AmacianteDireita implements Constraint {
 
     /**
      * Carol está exatamente à direita da mulher que esqueceu o Amaciante.
+     *
      * @param v1
-     * @param v2 
+     * @param v2
      */
     public AmacianteDireita(Variable v1, Variable v2) {
         this.var1 = v1;
@@ -55,7 +56,6 @@ public class AmacianteDireita implements Constraint {
                 if ((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1])) {
                     if ("equeceu".equals(var2Partes[2])) {
                         return v2.compareToIgnoreCase("amaciante") == 0;
-
                     }
 
                 }

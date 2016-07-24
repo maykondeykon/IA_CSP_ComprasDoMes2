@@ -18,7 +18,8 @@ public class ComDinheiro implements Constraint {
 
     /**
      * Quem vai pagar com Dinheiro está em um dos caixas das pontas.
-     * @param var1 
+     *
+     * @param var1
      */
     public ComDinheiro(Variable var1) {
         this.var1 = var1;
@@ -48,5 +49,4 @@ public class ComDinheiro implements Constraint {
         }
         return true;
     }
-
 }

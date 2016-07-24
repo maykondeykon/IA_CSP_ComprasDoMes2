@@ -17,8 +17,10 @@ public class ComMarido implements Constraint {
     private final List<Variable> escopo;
 
     /**
-     * Em um dos caixas da pontas está a mulher que foi ao supermercado com o Marido.
-     * @param var1 
+     * Em um dos caixas da pontas está a mulher que foi ao supermercado com o
+     * Marido.
+     *
+     * @param var1
      */
     public ComMarido(Variable var1) {
         this.var1 = var1;
@@ -48,5 +50,4 @@ public class ComMarido implements Constraint {
         }
         return true;
     }
-
 }

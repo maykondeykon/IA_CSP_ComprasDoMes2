@@ -134,18 +134,18 @@ public final class ComprasDoMes2 extends CSP {
                 Variable var2 = this.getVariables().get(j);
 
                 addConstraint(new AmacianteEsquerda(var1, var2));
-                addConstraint(new CrossoverDireita(var1, var2));//
+                addConstraint(new CrossoverDireita(var1, var2));//TODO melhorar
                 addConstraint(new NamoradoPickup(var1, var2));
                 addConstraint(new SedanEsquerdaSUV(var1, var2));
                 addConstraint(new PaoMae(var1, var2));
                 addConstraint(new AoLadoFilho(var1, var2));
-                addConstraint(new DebitoEsquerdaVale(var1, var2));//
+                addConstraint(new DebitoEsquerdaVale(var1, var2));//TODO melhorar
                 addConstraint(new ComMae(var1, var2));
                 addConstraint(new PresuntoDebito(var1, var2));
                 addConstraint(new AoLadoFrutas(var1, var2));
                 addConstraint(new PaoSUV(var1, var2));
                 addConstraint(new ComFilho(var1, var2));
-                addConstraint(new AmacianteDireita(var1, var2));//
+                addConstraint(new AmacianteDireita(var1, var2));//TODO melhorar
                 addConstraint(new VerdeEsquerdaVermelha(var1, var2));
                 addConstraint(new AoLadoPresunto(var1, var2));
                 addConstraint(new AoLadoSedan(var1, var2));
