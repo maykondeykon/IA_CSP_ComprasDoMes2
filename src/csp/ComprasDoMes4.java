@@ -4,12 +4,25 @@ import aima.core.search.csp.CSP;
 import aima.core.search.csp.Domain;
 import aima.core.search.csp.NotEqualConstraint;
 import aima.core.search.csp.Variable;
+import constraint.AmacianteDireita;
 import constraint.AmacianteEsquerda;
+import constraint.AoLadoFilho;
+import constraint.AoLadoFrutas;
+import constraint.AoLadoPresunto;
 import constraint.BlusaAzul;
+import constraint.ComDinheiro;
+import constraint.ComFilho;
 import constraint.ComMae;
+import constraint.ComMarido;
+import constraint.CrossoverDireita;
+import constraint.DebitoEsquerdaVale;
 import constraint.NamoradoPickup;
 import constraint.PagarComCheque;
 import constraint.PaoMae;
+import constraint.PaoSUV;
+import constraint.PresuntoDebito;
+import constraint.SedanEsquerdaSUV;
+import constraint.VerdeEsquerdaVermelha;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -116,16 +129,29 @@ public final class ComprasDoMes4 extends CSP {
         for (int i = 0; i < this.getVariables().size(); i++) {
             Variable var1 = this.getVariables().get(i);
 
-            addConstraint(new BlusaAzul(var1));
+            addConstraint(new ComMarido(var1));
             addConstraint(new PagarComCheque(var1));
+            addConstraint(new ComDinheiro(var1));
+            addConstraint(new BlusaAzul(var1));
 
             for (int j = this.getVariables().size() - 1; j > i; j--) {
                 Variable var2 = this.getVariables().get(j);
 
                 addConstraint(new AmacianteEsquerda(var1, var2));
+                addConstraint(new CrossoverDireita(var1, var2));
                 addConstraint(new NamoradoPickup(var1, var2));
+                addConstraint(new SedanEsquerdaSUV(var1, var2));
                 addConstraint(new PaoMae(var1, var2));
+                addConstraint(new AoLadoFilho(var1, var2));
+                addConstraint(new DebitoEsquerdaVale(var1, var2));
                 addConstraint(new ComMae(var1, var2));
+                addConstraint(new PresuntoDebito(var1, var2));
+                addConstraint(new AoLadoFrutas(var1, var2));
+                addConstraint(new PaoSUV(var1, var2));
+                addConstraint(new ComFilho(var1, var2));
+                addConstraint(new AmacianteDireita(var1, var2));
+                addConstraint(new VerdeEsquerdaVermelha(var1, var2));
+                addConstraint(new AoLadoPresunto(var1, var2));
 
             }
         }
