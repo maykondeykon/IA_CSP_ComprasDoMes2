@@ -2,54 +2,52 @@ package csp;
 
 import aima.core.search.csp.CSP;
 import aima.core.search.csp.Domain;
+import aima.core.search.csp.NotEqualConstraint;
 import aima.core.search.csp.Variable;
+import constraint.AmacianteDireita;
 import constraint.AmacianteEsquerda;
+import constraint.AoLadoFilho;
+import constraint.AoLadoFrutas;
+import constraint.AoLadoPresunto;
+import constraint.AoLadoSedan;
+import constraint.BlusaAzul;
+import constraint.ComDinheiro;
+import constraint.ComFilho;
+import constraint.ComMae;
+import constraint.ComMarido;
+import constraint.CrossoverDireita;
+import constraint.DebitoEsquerdaVale;
+import constraint.NamoradoPickup;
+import constraint.PagarComCheque;
+import constraint.PaoMae;
+import constraint.PaoSUV;
+import constraint.PresuntoDebito;
+import constraint.SedanEsquerdaSUV;
+import constraint.VerdeEsquerdaVermelha;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  *
  * @author maykon
  */
-public class ComprasDoMes2 extends CSP{
-    public static final Variable blusa = new Variable("blusa");
-    public static final Variable nome = new Variable("nome");
-    public static final Variable esqueceu = new Variable("esqueceu");
-    public static final Variable pagamento = new Variable("pagamento");
-    public static final Variable foiCom = new Variable("foiCom");
-    public static final Variable carro = new Variable("carro");
-    public static final Variable caixa = new Variable("caixa");
+public final class ComprasDoMes2 extends CSP {
 
-    public Variable[] blusas = new Variable[5];
-    public Variable[] nomes = new Variable[5];
-    public Variable[] esquecidos = new Variable[5];
-    public Variable[] pagamentos = new Variable[5];
-    public Variable[] acompanhantes = new Variable[5];
-    public Variable[] carros = new Variable[5];
-
-
-    private void collectVariables() {
-        addVariable(blusa);
-        addVariable(nome);
-        addVariable(esqueceu);
-        addVariable(pagamento);
-        addVariable(foiCom);
-        addVariable(carro);
-        addVariable(caixa);
-
+    public ComprasDoMes2() {
+        setVariaveisEDominios();
+        setNotEquals();
+        setConstraints();
     }
 
-    private void setDomains(){
+    public void setVariaveisEDominios() {
+        System.out.println("Setando variáveis e domínios...");
         List<String> blusaList = new ArrayList();
         blusaList.add("amarela");
         blusaList.add("azul");
         blusaList.add("branca");
         blusaList.add("verde");
         blusaList.add("vermelha");
-
-
-        Domain blusaDomain = new Domain(blusaList);
-        setDomain(blusa, blusaDomain);
 
         List<String> nomeList = new ArrayList();
         nomeList.add("Aline");
@@ -58,18 +56,12 @@ public class ComprasDoMes2 extends CSP{
         nomeList.add("Juliana");
         nomeList.add("Natalia");
 
-        Domain nomeDomain = new Domain(nomeList);
-        setDomain(nome, nomeDomain);
-
         List<String> esqueceuList = new ArrayList();
         esqueceuList.add("Amaciante");
         esqueceuList.add("Frutas");
         esqueceuList.add("Leite");
         esqueceuList.add("Pão");
         esqueceuList.add("Presunto");
-
-        Domain esqueceuDomain = new Domain(esqueceuList);
-        setDomain(esqueceu, esqueceuDomain);
 
         List<String> pagamentoList = new ArrayList();
         pagamentoList.add("Cheque");
@@ -78,18 +70,12 @@ public class ComprasDoMes2 extends CSP{
         pagamentoList.add("Dinheiro");
         pagamentoList.add("Vale");
 
-        Domain pagamentoDomain = new Domain(pagamentoList);
-        setDomain(pagamento, pagamentoDomain);
-
         List<String> foiComList = new ArrayList();
         foiComList.add("Filho");
         foiComList.add("Irmã");
         foiComList.add("Mãe");
         foiComList.add("Marido");
         foiComList.add("Namorado");
-
-        Domain acompanhanteDomain = new Domain(foiComList);
-        setDomain(foiCom, acompanhanteDomain);
 
         List<String> carroList = new ArrayList();
         carroList.add("Crossover");
@@ -98,31 +84,84 @@ public class ComprasDoMes2 extends CSP{
         carroList.add("Sedan");
         carroList.add("SUV");
 
-        Domain carroDomain = new Domain(carroList);
-        setDomain(carro, carroDomain);
-        
-        List<Integer> caixaList = new ArrayList();
-        caixaList.add(1);
-        caixaList.add(2);
-        caixaList.add(3);
-        caixaList.add(4);
-        caixaList.add(5);
-        
+        List<String> itemList = new ArrayList();
+        itemList.add("blusa");
+        itemList.add("nome");
+        itemList.add("esqueceu");
+        itemList.add("pagamento");
+        itemList.add("foi_com");
+        itemList.add("carro");
 
-        Domain caixaDomain = new Domain(caixaList);
-        setDomain(caixa, caixaDomain);
+        HashMap<String, List> varLinha = new HashMap<>();
+        varLinha.put(itemList.get(0), blusaList);
+        varLinha.put(itemList.get(1), nomeList);
+        varLinha.put(itemList.get(2), esqueceuList);
+        varLinha.put(itemList.get(3), pagamentoList);
+        varLinha.put(itemList.get(4), foiComList);
+        varLinha.put(itemList.get(5), carroList);
+
+        String v = "Caixa-";
+        int nCaixas = 5;
+
+        for (int i = 0; i < varLinha.size(); i++) {
+            for (int j = 0; j < nCaixas; j++) {
+                String caixa = v + (j + 1);
+                String item = itemList.get(i);
+                List dominio = varLinha.get(itemList.get(i));
+
+                Variable variable = new Variable(caixa + "-" + item);
+                addVariable(variable);
+
+                Domain domain = new Domain(dominio);
+                setDomain(variable, domain);
+            }
+
+        }
+
     }
 
-    private void setConstraints(){
-//        addConstraint(new AmacianteEsquerda(esqueceu,carro, caixa));
+    private void setConstraints() {
+        System.out.println("Adicionando constraints...");
+        for (int i = 0; i < this.getVariables().size(); i++) {
+            Variable var1 = this.getVariables().get(i);
 
-        //System.out.println(getDomain(carro)+"");
+            addConstraint(new ComMarido(var1));
+            addConstraint(new PagarComCheque(var1));
+            addConstraint(new ComDinheiro(var1));
+            addConstraint(new BlusaAzul(var1));
+
+            for (int j = this.getVariables().size() - 1; j > i; j--) {
+                Variable var2 = this.getVariables().get(j);
+
+                addConstraint(new AmacianteEsquerda(var1, var2));
+                addConstraint(new CrossoverDireita(var1, var2));//
+                addConstraint(new NamoradoPickup(var1, var2));
+                addConstraint(new SedanEsquerdaSUV(var1, var2));
+                addConstraint(new PaoMae(var1, var2));
+                addConstraint(new AoLadoFilho(var1, var2));
+                addConstraint(new DebitoEsquerdaVale(var1, var2));//
+                addConstraint(new ComMae(var1, var2));
+                addConstraint(new PresuntoDebito(var1, var2));
+                addConstraint(new AoLadoFrutas(var1, var2));
+                addConstraint(new PaoSUV(var1, var2));
+                addConstraint(new ComFilho(var1, var2));
+                addConstraint(new AmacianteDireita(var1, var2));//
+                addConstraint(new VerdeEsquerdaVermelha(var1, var2));
+                addConstraint(new AoLadoPresunto(var1, var2));
+                addConstraint(new AoLadoSedan(var1, var2));
+
+            }
+        }
     }
 
-    public ComprasDoMes2() {
-        collectVariables();
-        setDomains();
-        setConstraints();
+    private void setNotEquals() {
+        System.out.println("Adicionando constraint todas diferêntes...");
+        for (int i = 0; i < this.getVariables().size(); i++) {
+            Variable var1 = this.getVariables().get(i);
+            for (int j = this.getVariables().size() - 1; j > i; j--) {
+                Variable var2 = this.getVariables().get(j);
+                addConstraint(new NotEqualConstraint(var1, var2));
+            }
+        }
     }
-
 }

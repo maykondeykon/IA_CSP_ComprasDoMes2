@@ -16,7 +16,11 @@ public class AmacianteEsquerda implements Constraint {
     private final Variable var1;
     private final Variable var2;
     private final List<Variable> escopo;
-
+    /**
+     * A mulher que esqueceu o Amaciante está exatamente à esquerda da que foi dirigindo um Sedan.
+     * @param v1
+     * @param v2 
+     */
     public AmacianteEsquerda(Variable v1, Variable v2) {
         this.var1 = v1;
         this.var2 = v2;

@@ -17,6 +17,11 @@ public class VerdeEsquerdaVermelha implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * A mulher da blusa Verde está em algum lugar à esquerda da de blusa Vermelha.
+     * @param v1
+     * @param v2 
+     */
     public VerdeEsquerdaVermelha(Variable v1, Variable v2) {
         this.var1 = v1;
         this.var2 = v2;

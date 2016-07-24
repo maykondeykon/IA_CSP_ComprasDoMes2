@@ -17,6 +17,11 @@ public class AoLadoFilho implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Aline está ao lado da mulher que foi ao supermercado com o Filho.
+     * @param var1
+     * @param var2 
+     */
     public AoLadoFilho(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

@@ -17,6 +17,11 @@ public class ComFilho implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Fernanda foi para o supermercado com o Filho.
+     * @param var1
+     * @param var2 
+     */
     public ComFilho(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

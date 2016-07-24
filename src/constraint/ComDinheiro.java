@@ -16,6 +16,10 @@ public class ComDinheiro implements Constraint {
     private final Variable var1;
     private final List<Variable> escopo;
 
+    /**
+     * Quem vai pagar com Dinheiro está em um dos caixas das pontas.
+     * @param var1 
+     */
     public ComDinheiro(Variable var1) {
         this.var1 = var1;
 

@@ -11,18 +11,18 @@ import java.util.List;
  *
  * @author maykon
  */
-public class NamoradoPickup implements Constraint {
+public class AoLadoSedan implements Constraint {
 
     private final Variable var1;
     private final Variable var2;
     private final List<Variable> escopo;
 
     /**
-     * A mulher que foi com o Namorado foi fazer as compras dirigindo uma Pickup.
+     * Quem vai pagar com Dinheiro está ao lado de quem foi de Sedan ao supermercado.
      * @param var1
      * @param var2 
      */
-    public NamoradoPickup(Variable var1, Variable var2) {
+    public AoLadoSedan(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;
 
@@ -50,11 +50,11 @@ public class NamoradoPickup implements Constraint {
             return true;
         }
 
-        if ("foi_com".equals(var1Partes[2])) {
-            if (v1.compareToIgnoreCase("namorado") == 0) {
-                if ((parseInt(var1Partes[1])) == parseInt(var2Partes[1])) {
+        if ("pagamento".equals(var1Partes[2])) {
+            if (v1.compareToIgnoreCase("dinheiro") == 0) {
+                if (((parseInt(var1Partes[1]) + 1) == parseInt(var2Partes[1])) ||((parseInt(var1Partes[1]) - 1) == parseInt(var2Partes[1]))) {
                     if ("carro".equals(var2Partes[2])) {
-                        return v2.compareToIgnoreCase("pickup") == 0;
+                        return v2.compareToIgnoreCase("sedan") == 0;
                     }
 
                 }

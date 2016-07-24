@@ -17,6 +17,11 @@ public class ComMae implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Juliana foi ao supermercado com a Mãe.
+     * @param var1
+     * @param var2 
+     */
     public ComMae(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

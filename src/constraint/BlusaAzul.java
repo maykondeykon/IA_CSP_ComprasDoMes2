@@ -16,6 +16,10 @@ public class BlusaAzul implements Constraint {
     private final Variable var1;
     private final List<Variable> escopo;
 
+    /**
+     * A mulher da blusa Azul está no quarto caixa.
+     * @param var1 
+     */
     public BlusaAzul(Variable var1) {
         this.var1 = var1;
 

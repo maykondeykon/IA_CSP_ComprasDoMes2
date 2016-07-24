@@ -15,6 +15,10 @@ public class PagarComCheque implements Constraint{
     private final Variable var1;
     private final List<Variable> escopo;
 
+    /**
+     * No caixa da quarta posição está a mulher que vai pagar com Cheque.
+     * @param var1 
+     */
     public PagarComCheque(Variable var1) {
         this.var1 = var1;
         

@@ -17,6 +17,11 @@ public class PaoSUV implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Quem esqueceu o Pão foi ao supermercado dirigindo um SUV.
+     * @param var1
+     * @param var2 
+     */
     public PaoSUV(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

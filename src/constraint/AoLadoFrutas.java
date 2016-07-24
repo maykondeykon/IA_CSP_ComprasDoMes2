@@ -17,6 +17,11 @@ public class AoLadoFrutas implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * A mulher da blusa Amarela está ao lado da que esqueceu as Frutas.
+     * @param var1
+     * @param var2 
+     */
     public AoLadoFrutas(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

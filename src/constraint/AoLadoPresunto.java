@@ -17,6 +17,11 @@ public class AoLadoPresunto implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Quem esqueceu as Frutas está ao lado de quem esqueceu o Presunto.
+     * @param var1
+     * @param var2 
+     */
     public AoLadoPresunto(Variable var1, Variable var2) {
         this.var1 = var1;
         this.var2 = var2;

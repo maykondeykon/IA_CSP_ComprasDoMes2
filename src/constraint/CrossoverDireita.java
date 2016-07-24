@@ -17,6 +17,11 @@ public class CrossoverDireita implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * Quem foi num Crossover está exatamente à direita de quem vai pagar no cartão de Débito.
+     * @param v1
+     * @param v2 
+     */
     public CrossoverDireita(Variable v1, Variable v2) {
         this.var1 = v1;
         this.var2 = v2;

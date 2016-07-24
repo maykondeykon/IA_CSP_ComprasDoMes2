@@ -17,6 +17,11 @@ public class SedanEsquerdaSUV implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * A dona do Sedan está exatamente à esquerda da dona do SUV.
+     * @param v1
+     * @param v2 
+     */
     public SedanEsquerdaSUV(Variable v1, Variable v2) {
         this.var1 = v1;
         this.var2 = v2;

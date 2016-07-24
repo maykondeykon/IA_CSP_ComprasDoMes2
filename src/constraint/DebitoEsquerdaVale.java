@@ -17,6 +17,11 @@ public class DebitoEsquerdaVale implements Constraint {
     private final Variable var2;
     private final List<Variable> escopo;
 
+    /**
+     * A mulher que vai pagar com oc cartão de Débito está exatamente à esquerda de quem vai pagar com Vale.
+     * @param v1
+     * @param v2 
+     */
     public DebitoEsquerdaVale(Variable v1, Variable v2) {
         this.var1 = v1;
         this.var2 = v2;
