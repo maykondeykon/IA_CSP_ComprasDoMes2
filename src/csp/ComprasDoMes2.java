@@ -149,7 +149,6 @@ public final class ComprasDoMes2 extends CSP {
                 addConstraint(new VerdeEsquerdaVermelha(var1, var2));
                 addConstraint(new AoLadoPresunto(var1, var2));
                 addConstraint(new AoLadoSedan(var1, var2));
-
             }
         }
     }
